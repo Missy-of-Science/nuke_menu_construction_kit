@@ -1,0 +1,23 @@
+{
+    "minimum_nuke_version_required": 13.2,
+    "version": 1,
+    "category": "MENU_NAME",
+    "icon": "ICON.png",
+    "nodes": [
+        {
+            "name": "OPTIONAL",
+            "filepath": "GIZMO.gizmo",
+            "icon": "ICON_IN_PLUGINPATH.png"
+        },
+        {
+            "name": "OPTIONAL",
+            "filepath": "SCRIPT.nk",
+            "icon": "../PATH/TO/ICON.png"
+        },
+        {
+            "name": "PDF FILENAME",
+            "filepath": "../PATH/TO.pdf",
+            "icon": "ICON.png"
+        }
+    ]
+}
