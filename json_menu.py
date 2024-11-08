@@ -55,19 +55,22 @@ class NodeInfo:
 
     def create_node(self):
         "create Node depending on type"
-        if self.filepath.endswith((".gizmo", "dll")):
+        if self.filepath.endswith((".gizmo", ".dll")):
             tool = os.path.splitext(os.path.basename(self.filepath))[0]
             return f"import nuke; nuke.createNode({repr(tool)})"
 
-        if self.filepath.endswith(".nk"):
+        elif self.filepath.endswith(".nk"):
             return f"import nuke; nuke.nodePaste({repr(self.filepath)})"
 
-        if self.filepath.endswith((".pdf", ".html")):
+        elif self.filepath.endswith((".pdf", ".html")):
             return f"import nukescripts; nukescripts.start({repr(self.filepath)})"
 
-        if self.filepath.endswith(".tcl"):
+        elif self.filepath.endswith(".tcl"):
             filepath = os.path.splitext(os.path.basename(self.filepath))[0]
             return f"import nuke; nuke.tcl({repr(filepath.strip())})"
+
+        elif self.filepath.startswith("http"):
+            return f"import nukescripts; nukescripts.start({repr(self.filepath)})"
 
         return ""
 
@@ -148,7 +151,9 @@ def discover_packages(repository, target_version):
         package.icon = package_icon if package.icon else ""
 
         for node in package.nodes:
-            node.filepath = normalised_path(os.path.join(root, node.filepath))
+            if not node.filepath.startswith("http"):
+                node.filepath = normalised_path(os.path.join(root, node.filepath))
+
             icon_filepath = normalised_path(os.path.join(root, node.icon))
             if not os.path.exists(icon_filepath):
                 icon_filepath = node.icon
