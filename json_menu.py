@@ -137,7 +137,7 @@ def discover_packages(repository, target_version):
 
         filepath = os.path.join(root, JSON_FILE)
         package = PackageInfo.from_json(filepath)
-        if package.minimum_nuke_version_required > target_version or len(package.nodes) < 0:
+        if package.minimum_nuke_version_required > target_version or len(package.nodes) == 0:
             continue
 
         package_icon = normalised_path(os.path.join(root, package.icon))
@@ -239,7 +239,10 @@ def create_menu(menu_name):
     populate_menu(m)
 
     m.addSeparator()
-    m.addCommand("Update", f"create_menu({repr(menu_name)})")
+    m.addCommand(
+        "Update",
+        f"{os.path.splitext(os.path.basename(__file__))[0]}.create_menu({repr(menu_name)})",
+    )
 
 
 if __name__ == "__main__":
