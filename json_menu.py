@@ -35,7 +35,7 @@ class NodeInfo:
             data.get("name", ""),
             data.get("shortcut", ""),
             data.get("icon", ""),
-            data.get("ctx", ""),
+            data.get("ctx", 0),
         )
 
         if not self.name or self.name == self.filepath:
@@ -50,6 +50,7 @@ class NodeInfo:
             "name": self.name,
             "shortcut": self.shortcut,
             "icon": self.icon,
+            "ctx": self.ctx,
         }
 
     def create_node(self):
@@ -205,7 +206,11 @@ def populate_menu(menu):
         nodes.sort(key=lambda k: k.name.lower().replace("_", "~"))
         for node in nodes:
             sub_menu.addCommand(
-                node.name, node.create_node(), icon=node.icon, shortcut=node.shortcut
+                node.name,
+                node.create_node(),
+                icon=node.icon,
+                shortcut=node.shortcut,
+                shortcutContext=node.ctx,
             )
 
 

@@ -7,12 +7,15 @@
         {
             "name": "OPTIONAL",
             "filepath": "GIZMO.gizmo",
-            "icon": "ICON_IN_PLUGINPATH.png"
+            "icon": "ICON_IN_PLUGINPATH.png",
+            "shortcut": "^+R",
+            "ctx": 2
         },
         {
             "name": "OPTIONAL",
             "filepath": "SCRIPT.nk",
-            "icon": "../PATH/TO/ICON.png"
+            "icon": "../PATH/TO/ICON.png",
+            "shortcut": "Ctrl+Shift+P"
         },
         {
             "name": "PDF FILENAME",
