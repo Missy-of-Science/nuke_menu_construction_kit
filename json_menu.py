@@ -9,6 +9,7 @@ import nuke
 
 
 # GLOBALS
+# generic values, overwrite in init.py with load_globals function
 JSON_FILE = "menu.json"
 ICONS = {}
 FOLDER_NAME = "gizmos"
@@ -151,14 +152,14 @@ def discover_packages(repository, target_version):
         package.icon = package_icon if package.icon else ""
 
         for node in package.nodes:
+            if node.filepath.endswith(".py"):
+                node.name = "python"
+                continue
+
             if not node.filepath.startswith("http"):
                 node.filepath = normalised_path(os.path.join(root, node.filepath))
 
-            icon_filepath = normalised_path(os.path.join(root, node.icon))
-            if not os.path.exists(icon_filepath):
-                icon_filepath = node.icon
-
-            node.icon = icon_filepath if node.icon else ICONS["default"]
+            node.icon = node.icon if node.icon else ICONS["default"]
         result.append(package)
 
     return result
@@ -210,6 +211,10 @@ def populate_menu(menu):
         nodes = [c for p in packages_by_category[ctgy] for c in p.nodes]
         nodes.sort(key=lambda k: k.name.lower().replace("_", "~"))
         for node in nodes:
+            if node.name == "python":
+                nuke.load(node.filepath)
+                continue
+
             sub_menu.addCommand(
                 node.name,
                 node.create_node(),

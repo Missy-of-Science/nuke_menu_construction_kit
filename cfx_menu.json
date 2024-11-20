@@ -21,6 +21,9 @@
             "name": "PDF FILENAME",
             "filepath": "../PATH/TO.pdf",
             "icon": "ICON.png"
+        },
+        {
+            "filepath": "python_file.py"
         }
     ]
 }
