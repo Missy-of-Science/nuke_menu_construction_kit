@@ -2,8 +2,8 @@
 
 #### !!! This package is still a work in progress !!!
 
-*The functionality is working, but the integration into the pipeline is still not configured for general use.  
-When it's done, Users will have the possibilty to incorporate Gizmos, Nuke Scripts and a lot more without needing to adjust the python files of the pipeline.*
+*It's fully functioning, the configuration for general use is not yet completely documented.
+This Toolset gives users the possibilty to incorporate Gizmos, Nuke Scripts and a lot more without needing to adjust the python files of the pipeline.*
 
 ## Inspiration and Goal
 The inspiration came from Foundry's integration of the Cattery Tools, where you could update your menu without the need to restart Nuke and use the new Gizmos within that same session.  
