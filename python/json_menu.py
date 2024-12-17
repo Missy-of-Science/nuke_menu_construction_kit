@@ -253,17 +253,3 @@ def create_menu(menu_name):
         "Update",
         f"{os.path.splitext(os.path.basename(__file__))[0]}.create_menu({repr(menu_name)})",
     )
-
-
-if __name__ == "__main__":
-    icons_dict = {
-        "3d": "cvfx_3d.png",
-        "default": "cvfx.png",
-        "image": "cvfx_image.png",
-        "menu": "cvfx_menu.png",
-        "other": "cvfx_other.png",
-    }
-    dir_list = glob.glob(f"{os.environ['nuke_path']}/_v*")
-
-    load_globals("cfx_menu.json", "tools", icons_dict)
-    create_menu(f"Celluloid VFX {os.path.basename(dir_list[0]).strip('_')}")
