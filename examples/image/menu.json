@@ -1,0 +1,11 @@
+{
+    "minimum_nuke_version_required": 13.2,
+    "version": 1,
+    "category": "Image",
+    "nodes": [
+        {
+            "name": "Custom ColorWheel",
+            "filepath": "custom_input.nk"
+        }
+    ]
+}

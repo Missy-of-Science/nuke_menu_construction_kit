@@ -1,0 +1,11 @@
+set cut_paste_input [stack 0]
+version 15.0 v1
+push $cut_paste_input
+Grade {
+ white 0.33
+ gamma 0.35
+ name Grade1
+ selected true
+ xpos 268
+ ypos 183
+}

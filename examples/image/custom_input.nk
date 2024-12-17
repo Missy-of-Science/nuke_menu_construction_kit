@@ -1,0 +1,13 @@
+set cut_paste_input [stack 0]
+version 15.0 v1
+ColorWheel {
+ inputs 0
+ centerSaturation 0.07
+ edgeSaturation 0.625
+ edgeValue 0.146
+ gamma 0.144
+ name ColorWheel1
+ selected true
+ xpos 466
+ ypos -57
+}
