@@ -1,0 +1,5 @@
+# Python byte code etc.
+__pycache__
+
+#custom nuke launcher
+*.exe
